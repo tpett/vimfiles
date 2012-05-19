@@ -12,4 +12,11 @@ set guioptions-=rL
 if has("gui_macvim")
   " Fullscreen takes up entire screen
   set fuoptions=maxhorz,maxvert
+
+  "" Key Mappings
+  macmenu &File.New\ Tab key=<D-T>
+  map <D-t> :CommandTFlush<cr>\|:CommandT<cr>
+  map <D-/> <Plug>CommentaryLine
+  vmap <D-/> <Plug>Commentary
 end
+

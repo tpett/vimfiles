@@ -85,8 +85,11 @@ endif
 "" General Mappings
 let mapleader=","
 
-map Q gq                       " don't use Ex mode, use Q for formatting
-:nnoremap <CR> :nohlsearch<cr> " clear the search buffer when hitting return
+" don't use Ex mode, use Q for formatting
+map Q gq
+
+" clear the search buffer when hitting return
+:nnoremap <CR> :nohlsearch<cr>
 
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
@@ -140,6 +143,13 @@ endif
 let g:bufExplorerDefaultHelp=0
 let g:bufExplorerShowRelativePath=1
 
+" CommandT
+let g:CommandTMaxHeight=10
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+" http://vimcasts.org/e/14
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+
 
 "" Misc
 
@@ -149,7 +159,7 @@ set undodir=~/.vim/_data/undo        " where to put undo files.
 set undofile                         " store undo data in a file
 
 " turns wrapping on for a file
-function s:setupWrapping()
+function! s:setupWrapping()
   set wrap
   set wrapmargin=2
   set textwidth=72
