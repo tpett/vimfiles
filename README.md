@@ -19,6 +19,7 @@ I use several open-source plugins that are added as submodules.
 ### Features
 
 * __bufexplorer__ :: Provides a nice buffer management interface
+* __command-t__ :: Fast fuzzy file searching and launching
 * __commentary__ :: Simple comment/uncomment feature
 * __endwise__ :: Smart non-intrusive auto-closing of code blocks
 * __fugitive__ :: Kick awesome git plugin
