@@ -21,12 +21,13 @@ set background=dark
 let g:zenburn_high_Contrast=1
 color zenburn
 
-set number       " show line numbers
-set ruler        " show the cursor position all the time
-set showcmd      " display incomplete commands
-set cursorline   " highlight current line
-set cursorcolumn " highlight current column
-set scrolloff=3  " provide some context when editing
+set number         " show line numbers
+set ruler          " show the cursor position all the time
+set showcmd        " display incomplete commands
+set cursorline     " highlight current line
+set cursorcolumn   " highlight current column
+set scrolloff=3    " provide some context when editing
+set nostartofline  " don't jump to first character when paging
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
@@ -125,6 +126,8 @@ nnoremap <leader>l <c-^>
 map <leader>s :set spell! <CR>
 set spelllang=en_us
 
+" visually select last inserted text
+nmap gV `[v`]
 
 "" Plugin Mappings / Configs
 
