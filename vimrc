@@ -112,11 +112,15 @@ command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 map <leader>w :KillWhitespace<cr>
 
 " Quick edit this file
-map ,v :sp ~/.vimrc<CR><C-W>_
-map <silent> ,V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <leader>v :sp ~/.vimrc<CR><C-W>_
+map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Quick switch to last buffer
 nnoremap <leader>l <c-^>
+
+" Spelling
+map <leader>s :set spell! <CR>
+set spelllang=en_us
 
 
 "" Plugin Mappings / Configs
