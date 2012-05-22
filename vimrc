@@ -28,12 +28,6 @@ set cursorline   " highlight current line
 set cursorcolumn " highlight current column
 set scrolloff=3  " provide some context when editing
 
-" Remove line/column selection on inactive panes
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-autocmd WinEnter * setlocal cursorcolumn
-autocmd WinLeave * setlocal nocursorcolumn
-
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
 set hidden
@@ -80,6 +74,15 @@ if has("autocmd")
   " see :help last-position-jump
   au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g`\"" | endif
+
+  " Remove line/column selection on inactive panes
+  au WinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+  au WinEnter * setlocal cursorcolumn
+  au WinLeave * setlocal nocursorcolumn
+
+  " Auto delete fugitive buffers
+  au BufReadPost fugitive://* set bufhidden=delete
 endif
 
 "" General Mappings
@@ -134,7 +137,6 @@ nnoremap <Leader>ggb :Gblame<CR>
 nnoremap <Leader>ggd :Gdiff<CR>
 nnoremap <Leader>ggr :Gread<CR>
 nnoremap <Leader>ggl :Glog<CR>
-autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
