@@ -19,6 +19,7 @@ filetype plugin indent on  " setup filetype detection
 "" Look and Feel
 set background=dark
 let g:zenburn_high_Contrast=1
+let g:zenburn_old_Visual = 1
 color zenburn
 
 set number         " show line numbers
