@@ -30,6 +30,23 @@ set cursorcolumn   " highlight current column
 set scrolloff=3    " provide some context when editing
 set nostartofline  " don't jump to first character when paging
 
+" Remove line/column selection on inactive panes
+augroup position_selection_au
+  au!
+  au WinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+  au WinEnter * setlocal cursorcolumn
+  au WinLeave * setlocal nocursorcolumn
+augroup END
+
+" Remember last location in file, but not for commit messages.
+" see :help last-position-jump
+augroup remember_position_au
+  au!
+  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g`\"" | endif
+augroup END
+
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
 set hidden
@@ -41,6 +58,14 @@ set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
 set list                          " show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
+
+augroup whitespace_au
+  au!
+  " in Makefiles, use real tabs, not tabs expanded to spaces
+  au FileType make set noexpandtab
+  " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+  au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+augroup END
 
 " List chars
 set listchars=""                  " reset the listchars
@@ -60,32 +85,6 @@ set smartcase                     " ... unless they contain at least one capital
 "" Syntax
 let python_highlight_all=1    " use verbose syntax highlight in Python
 let ruby_operators=1          " options for Ruby syntax highlighting
-
-"" Auto-commands
-if has("autocmd")
-  " In Makefiles, use real tabs, not tabs expanded to spaces
-  au FileType make set noexpandtab
-
-  " Make sure all mardown files have the correct filetype set and setup wrapping
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
-
-  " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-  au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-
-  " Remember last location in file, but not for commit messages.
-  " see :help last-position-jump
-  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g`\"" | endif
-
-  " Remove line/column selection on inactive panes
-  au WinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
-  au WinEnter * setlocal cursorcolumn
-  au WinLeave * setlocal nocursorcolumn
-
-  " Auto delete fugitive buffers
-  au BufReadPost fugitive://* set bufhidden=delete
-endif
 
 "" General Mappings
 let mapleader=","
@@ -146,6 +145,12 @@ nnoremap <Leader>ggd :Gdiff<CR>
 nnoremap <Leader>ggr :Gread<CR>
 nnoremap <Leader>ggl :Glog<CR>
 
+augroup fugitive_buffer_delete_au
+  au!
+  " Auto delete fugitive buffers
+  au BufReadPost fugitive://* set bufhidden=delete
+augroup END
+
 " Powerline
 let g:Powerline_symbols = 'fancy'
 
@@ -178,4 +183,10 @@ function! s:setupWrapping()
   set wrapmargin=2
   set textwidth=72
 endfunction
+
+" Make sure all mardown files have the correct filetype set and setup wrapping
+augroup text_wrapping_au
+  au!
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
+augroup END
 
