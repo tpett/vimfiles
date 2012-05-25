@@ -94,7 +94,7 @@ let mapleader=","
 map Q gq
 
 " clear the search buffer when hitting return
-:nnoremap <CR> :nohlsearch<cr>
+nnoremap <CR> :nohlsearch<cr>
 
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
@@ -117,8 +117,8 @@ command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 map <leader>w :KillWhitespace<cr>
 
 " Quick edit this file
-map <leader>v :sp ~/.vimrc<CR><C-W>_
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <leader>v :sp $MYVIMRC<CR><C-W>_
+map <silent> <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Quick switch to last buffer
 nnoremap <leader>l <c-^>
@@ -129,6 +129,10 @@ set spelllang=en_us
 
 " visually select last inserted text
 nmap gV `[v`]
+
+" nicer line front/end movement keys
+nnoremap H ^
+nnoremap L $
 
 "" Plugin Mappings / Configs
 
