@@ -6,7 +6,8 @@
 ""   Janus  <github.com/carlhuda/janus>
 ""   Mislav Marohnić <https://github.com/mislav/vimfiles>
 
-"" Basic Setup
+" Basic Setup {{{
+
 set nocompatible
 syntax enable
 set encoding=utf-8
@@ -16,7 +17,9 @@ call pathogen#infect()     " load pathogen
 
 filetype plugin indent on  " setup filetype detection
 
-"" Look and Feel
+" }}}
+" Look and Feel {{{
+
 set background=dark
 let g:zenburn_high_Contrast=1
 let g:zenburn_old_Visual = 1
@@ -51,7 +54,9 @@ augroup END
 " for backgrounded buffers
 set hidden
 
-"" Whitespace
+" }}}
+" Whitespace {{{
+
 set nowrap                        " don't wrap lines
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
@@ -76,17 +81,31 @@ set listchars+=extends:>          " The character to show in the last column whe
 set listchars+=precedes:<         " The character to show in the last column when wrap is
                                   " off and the line continues beyond the right of the screen
 
-"" Searching
+" }}}
+" Searching {{{
+
 set hlsearch                      " highlight matches
 set incsearch                     " incremental searching
 set ignorecase                    " searches are case insensitive...
 set smartcase                     " ... unless they contain at least one capital letter
 
-"" Syntax
+" }}}
+" Syntax {{{
+
 let python_highlight_all=1    " use verbose syntax highlight in Python
 let ruby_operators=1          " options for Ruby syntax highlighting
 
-"" General Mappings
+" }}}
+" Folding {{{
+
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" }}}
+" General Mappings {{{
+
 let mapleader=","
 
 " don't use Ex mode, use Q for formatting
@@ -133,7 +152,8 @@ nmap gV `[v`]
 nnoremap H ^
 nnoremap L $
 
-"" Plugin Mappings / Configs
+" }}}
+" Plugin Mappings / Configs {{{
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
@@ -169,8 +189,8 @@ map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
-
-"" Misc
+"" }}}
+"" Misc {{{
 
 set backupdir=~/.vim/_data/backup    " where to put backup files.
 set directory=~/.vim/_data/swap      " where to put swap files.
@@ -189,4 +209,6 @@ augroup text_wrapping_au
   au!
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
 augroup END
+
+" }}}
 
