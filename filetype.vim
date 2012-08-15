@@ -8,11 +8,14 @@ au BufRead,BufNewFile *coffee set ft=coffee
 au BufRead,BufNewFile haproxy* set ft=haproxy
 
 " Treat JSON files like JavaScript
-au BufNewFile,BufRead *.json set ft=javascript
+au BufRead,BufNewFile *.json set ft=javascript
 
 " Setup less files
-au BufRead,BufNewFile {*.less}    set ft=scss
+au BufRead,BufNewFile {*.less} set ft=scss
 
 " Add a few more file types to ruby syntax
-au BufRead,BufNewFile {*.thor}    set ft=ruby
+au BufRead,BufNewFile {*.god,*.thor} set ft=ruby
+
+" Generic configuration files
+au BufRead,BufNewFile {*.conf} set ft=conf
 
