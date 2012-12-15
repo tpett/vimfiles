@@ -180,6 +180,7 @@ let g:bufExplorerDefaultHelp=0
 let g:bufExplorerShowRelativePath=1
 
 " CommandT
+set wildignore+=tmp/**
 let g:CommandTMaxHeight=10
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 " http://vimcasts.org/e/14
