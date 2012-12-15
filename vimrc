@@ -207,3 +207,7 @@ augroup text_wrapping_au
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
 augroup END
 
+" NERDTree
+map <Leader>n :NERDTreeToggle<CR>
+map <Leader>r :NERDTreeFind<CR>
+let NERDTreeSortOrder=['*', '\.swp$', '\.bak$', '\~$']
