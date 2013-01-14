@@ -9,6 +9,10 @@ set visualbell
 set guioptions-=T
 set guioptions-=rL
 
+" Ignore horizontal scrolling
+map <ScrollWheelLeft> <nop>
+map <ScrollWheelRight> <nop>
+
 if has("gui_macvim")
   " Fullscreen takes up entire screen
   set fuoptions=maxhorz,maxvert
