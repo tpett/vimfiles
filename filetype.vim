@@ -14,7 +14,7 @@ au BufRead,BufNewFile *.json set ft=javascript
 au BufRead,BufNewFile {*.less} set ft=scss
 
 " Add a few more file types to ruby syntax
-au BufRead,BufNewFile {*.god,*.thor} set ft=ruby
+au BufRead,BufNewFile {*.god,*.thor,*.pill,*.axlsx} set ft=ruby
 
 " Generic configuration files
 au BufRead,BufNewFile {*.conf} set ft=conf
