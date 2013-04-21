@@ -12,8 +12,31 @@ set nocompatible
 syntax enable
 set encoding=utf-8
 
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()     " load pathogen
+filetype off
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'Lokaltog/powerline.git'
+Bundle 'vim-scripts/bufexplorer.zip'
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'jnurmine/Zenburn.git'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'pangloss/vim-javascript'
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-pathogen.git'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround.git'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'wincent/Command-T'
+
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 filetype plugin indent on  " setup filetype detection
 
