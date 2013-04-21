@@ -9,32 +9,26 @@ Thanks to these guys:
 * [Mislav](http://mislav.uniqpath.com/),
 * and the [Janus project](https://github.com/carlhuda/janus).
 
-My configuration uses [Pathogen](https://github.com/tpope/vim-pathogen) and git submodules.
-(But you don't need to care about any of that.)
+My configuration uses [Vundle](https://github.com/gmarik/vundle) to
+manage plugins.
 
 ## Plugins
 
-I use several open-source plugins that are added as submodules.
+All plugins are listed in
+[my vimrc file](https://github.com/tpett/vimfiles/blob/master/vimrc).
+Check it out if you want to learn more about my configuration.
 
-### Features
+### Installation
 
-* __bufexplorer__ :: Provides a nice buffer management interface
-* __command-t__ :: Fast fuzzy file searching and launching
-* __commentary__ :: Simple comment/uncomment feature
-* __endwise__ :: Smart non-intrusive auto-closing of code blocks
-* __fugitive__ :: Kick awesome git plugin
-* __gundo__ :: Undo tree management
-* __powerline__ :: Super sexy status bar
-* __surround__ :: Manipulate containing structures
+If you would like to check out my configuration I would highly recommend
+forking your own copy to make it easy to change in the future.
 
-### Lang / Syntax / Color
+Setup is handled through Rake. Ruby and wget are required. Only works
+for OS X.
 
-* coffee-script
-* haml
-* javascript
-* markdown
-* rails
-* ruby
-* scss
-* zenburn
+    # If you have an existing .vim folder
+    $ mv ~/.vim ~/.vim.old
+
+    $ git clone https://github.com/tpett/vimfiles.git ~/.vim
+    $ cd ~/.vim && rake setup
 
