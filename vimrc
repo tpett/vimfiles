@@ -31,6 +31,7 @@ set cursorline     " highlight current line
 set cursorcolumn   " highlight current column
 set scrolloff=3    " provide some context when editing
 set nostartofline  " don't jump to first character when paging
+set autoread       " auto read buffer when changed from outside of vim
 
 " Remove line/column selection on inactive panes
 augroup position_selection_au
@@ -189,6 +190,7 @@ map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 "" Misc
 
+" History
 set backupdir=~/.vim/_data/backup    " where to put backup files.
 set directory=~/.vim/_data/swap      " where to put swap files.
 set undodir=~/.vim/_data/undo        " where to put undo files.
