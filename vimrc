@@ -119,6 +119,10 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" more natural split behavior
+set splitbelow
+set splitright
+
 " disable cursor keys in normal mode
 map <Left>  :echo "no!"<cr>
 map <Right> :echo "no!"<cr>
@@ -213,3 +217,4 @@ augroup END
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>r :NERDTreeFind<CR>
 let NERDTreeSortOrder=['*', '\.swp$', '\.bak$', '\~$']
+
