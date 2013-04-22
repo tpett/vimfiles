@@ -43,7 +43,6 @@ desc "Run all setup tasks"
 task :setup => [
   "setup:tmp_dirs",
   "setup:install_bundles",
-  "setup:command_t",
   "setup:link",
   "setup:install_powerline_fonts"
 ]
@@ -70,21 +69,6 @@ namespace :setup do
     mkdir_p "_data/backup"
     mkdir_p "_data/swap"
     mkdir_p "_data/undo"
-  end
-
-  desc "compile the CommandT bundle extensions"
-  task :command_t do
-    puts "Compiling Command-T plugin..."
-    Dir.chdir "bundle/command-t/ruby/command-t" do
-      # first try to read which ruby version is vim compiled against
-      read_version = %{require "rbconfig"; print File.join(RbConfig::CONFIG["bindir"], RbConfig::CONFIG["ruby_install_name"])}
-      ruby = `vim --cmd 'ruby #{read_version}' --cmd 'q' 2>&1 >/dev/null | grep -v 'Vim: Warning'`.strip
-      # fall back to system rubies
-      ruby = %w[/usr/bin/ruby1.8 /usr/bin/ruby].find {|rb| File.executable? rb } || 'ruby' if ruby.empty?
-      cmd = Array(ruby) + %w[extconf.rb]
-      sh(*cmd)
-      sh "make clean && make"
-    end
   end
 
   desc "download and install the appropriate fonts for powerline"

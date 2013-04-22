@@ -22,6 +22,7 @@ Bundle 'vim-scripts/bufexplorer.zip'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'jnurmine/Zenburn.git'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'sjl/gundo.vim'
@@ -34,7 +35,6 @@ Bundle 'tpope/vim-pathogen.git'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround.git'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'wincent/Command-T'
 
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
@@ -206,14 +206,6 @@ endif
 " Bufexplorer
 let g:bufExplorerDefaultHelp=0
 let g:bufExplorerShowRelativePath=1
-
-" CommandT
-set wildignore+=tmp/**
-let g:CommandTMaxHeight=10
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-" http://vimcasts.org/e/14
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 "" Misc
 

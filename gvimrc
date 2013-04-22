@@ -19,7 +19,7 @@ if has("gui_macvim")
 
   "" Key Mappings
   macmenu &File.New\ Tab key=<D-T>
-  map <D-t> :CommandTFlush<cr>\|:CommandT<cr>
+  map <D-t> :CtrlP<cr>
   map <D-/> <Plug>CommentaryLine
   vmap <D-/> <Plug>Commentary
 end
