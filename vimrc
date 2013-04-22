@@ -18,8 +18,8 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 Bundle 'Lokaltog/powerline.git'
-Bundle 'vim-scripts/bufexplorer.zip'
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'danro/rename.vim'
 Bundle 'jnurmine/Zenburn.git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
@@ -35,6 +35,8 @@ Bundle 'tpope/vim-pathogen.git'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround.git'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'vim-scripts/bufexplorer.zip'
+Bundle 'vim-scripts/greplace.vim'
 
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
