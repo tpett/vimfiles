@@ -36,6 +36,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/bufexplorer.zip'
 Bundle 'vim-scripts/greplace.vim'
+Bundle 'xenoterracide/html.vim'
 
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
