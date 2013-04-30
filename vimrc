@@ -230,6 +230,11 @@ augroup text_wrapping_au
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
 augroup END
 
+augroup gitcommit_au
+  au!
+  au Filetype gitcommit setlocal spell textwidth=72
+augroup END
+
 " NERDTree
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>r :NERDTreeFind<CR>
