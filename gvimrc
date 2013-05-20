@@ -24,3 +24,20 @@ if has("gui_macvim")
   vmap <D-/> <Plug>Commentary
 end
 
+augroup auto_close_nerdtree_au
+  au!
+  au WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+augroup END
+
+" Close all open buffers on entering a window if the only
+" buffer that's left is the NERDTree buffer
+function! s:CloseIfOnlyNerdTreeLeft()
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        q
+      endif
+    endif
+  endif
+endfunction
+
