@@ -52,6 +52,7 @@ let g:zenburn_old_Visual = 1
 color zenburn
 
 set number         " show line numbers
+set relativenumber " show relative line numbers
 set ruler          " show the cursor position all the time
 set showcmd        " display incomplete commands
 set cursorline     " highlight current line
