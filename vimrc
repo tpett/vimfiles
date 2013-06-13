@@ -9,8 +9,6 @@
 " Basic Setup
 
 set nocompatible
-syntax enable
-set encoding=utf-8
 
 filetype off
 
@@ -33,6 +31,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
@@ -53,13 +52,10 @@ color zenburn
 
 set number         " show line numbers
 set relativenumber " show relative line numbers
-set ruler          " show the cursor position all the time
-set showcmd        " display incomplete commands
 set cursorline     " highlight current line
 set cursorcolumn   " highlight current column
 set scrolloff=3    " provide some context when editing
 set nostartofline  " don't jump to first character when paging
-set autoread       " auto read buffer when changed from outside of vim
 
 " Remove line/column selection on inactive panes
 augroup position_selection_au
@@ -89,7 +85,6 @@ set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
 set list                          " show invisible characters
-set backspace=indent,eol,start    " backspace through everything in insert mode
 
 augroup whitespace_au
   au!
@@ -99,25 +94,14 @@ augroup whitespace_au
   au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 augroup END
 
-" List chars
-set listchars=""                  " reset the listchars
-set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
-set listchars+=trail:.            " show trailing spaces as dots
-set listchars+=extends:>          " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the right of the screen
-set listchars+=precedes:<         " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the right of the screen
-
 " Searching
 
 set hlsearch                      " highlight matches
-set incsearch                     " incremental searching
 set ignorecase                    " searches are case insensitive...
 set smartcase                     " ... unless they contain at least one capital letter
 
 " Tab completion behavior
 set wildmode=longest,list,full
-set wildmenu
 
 " Syntax
 
@@ -203,10 +187,6 @@ augroup END
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
-
-if has("statusline") && !&cp
-  set laststatus=2  " always show the status bar
-endif
 
 " Bufexplorer
 let g:bufExplorerDefaultHelp=0
