@@ -50,7 +50,6 @@ let g:zenburn_high_Contrast=1
 let g:zenburn_old_Visual = 1
 color zenburn
 
-set number         " show line numbers
 set relativenumber " show relative line numbers
 set cursorline     " highlight current line
 set cursorcolumn   " highlight current column
