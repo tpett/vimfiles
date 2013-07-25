@@ -18,6 +18,7 @@ call vundle#rc()
 Bundle 'Lokaltog/powerline'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'danro/rename.vim'
+Bundle 'elixir-lang/vim-elixir'
 Bundle 'jnurmine/Zenburn'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
