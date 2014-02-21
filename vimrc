@@ -15,14 +15,20 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
+
 Bundle 'Lokaltog/powerline'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'danro/rename.vim'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'ervandew/supertab'
 Bundle 'jnurmine/Zenburn'
+Bundle 'jnwhiteh/vim-golang'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
+Bundle 'nono/vim-handlebars'
 Bundle 'pangloss/vim-javascript'
+Bundle 'rizzatti/dash.vim'
+Bundle 'rizzatti/funcoo.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-abolish'
@@ -32,6 +38,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
@@ -92,6 +99,8 @@ augroup whitespace_au
   au FileType make set noexpandtab
   " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+  " Make go 4 space tabs
+  au FileType go set softtabstop=4 tabstop=4 shiftwidth=4
 augroup END
 
 " Searching
@@ -152,9 +161,6 @@ map <leader>w :KillWhitespace<cr>
 " Quick edit this file
 map <leader>v :sp $MYVIMRC<CR><C-W>_
 map <silent> <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-
-" Quick switch to last buffer
-nnoremap <leader>l <c-^>
 
 " Spelling
 map <leader>s :set spell! <CR>
@@ -222,4 +228,13 @@ augroup END
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>r :NERDTreeFind<CR>
 let NERDTreeSortOrder=['*', '\.swp$', '\.bak$', '\~$']
+
+" Use xmllint for indenting XML
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+
+" Custom leaders
+map <leader>t :!rspec . --no-color<cr>
+nnoremap <leader>l <c-^>
+map <leader>d :Dash<cr>
+map <leader>ot :sp ~/Dropbox/Documents/current-project-todos.md<CR><C-W>_
 
