@@ -15,9 +15,9 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
-
 Bundle 'Lokaltog/powerline'
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'chooh/brightscript.vim'
 Bundle 'danro/rename.vim'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'ervandew/supertab'
@@ -31,6 +31,8 @@ Bundle 'rizzatti/dash.vim'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'sjl/gundo.vim'
+Bundle 'skalnik/vim-vroom'
+Bundle 'slim-template/vim-slim.git'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
@@ -232,8 +234,18 @@ let NERDTreeSortOrder=['*', '\.swp$', '\.bak$', '\~$']
 " Use xmllint for indenting XML
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
+" Testing
+nmap <leader>t :VroomRunTestFile<cr>
+nmap <space> :VroomRunNearestTest<cr>
+
+if isdirectory("bin")
+  let g:vroom_use_binstubs=1
+  map <leader>T :!bin/rspec . --no-color<cr>
+else
+  map <leader>T :!rspec . --no-color<cr>
+endif
+
 " Custom leaders
-map <leader>t :!rspec . --no-color<cr>
 nnoremap <leader>l <c-^>
 map <leader>d :Dash<cr>
 map <leader>ot :sp ~/Dropbox/Documents/current-project-todos.md<CR><C-W>_
