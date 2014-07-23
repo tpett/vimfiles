@@ -31,15 +31,18 @@ Bundle 'rizzatti/dash.vim'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'sjl/gundo.vim'
-Bundle 'skalnik/vim-vroom'
 Bundle 'slim-template/vim-slim.git'
+Bundle 'szw/vim-tags'
+Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
@@ -113,6 +116,10 @@ set smartcase                     " ... unless they contain at least one capital
 
 " Tab completion behavior
 set wildmode=longest,list,full
+
+" File ignores
+set wildignore+=*.scssc
+set wildignore+=*/tmp/*
 
 " Syntax
 
@@ -235,15 +242,15 @@ let NERDTreeSortOrder=['*', '\.swp$', '\.bak$', '\~$']
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
 " Testing
-nmap <leader>t :VroomRunTestFile<cr>
-nmap <space> :VroomRunNearestTest<cr>
+let g:rspec_runner = "os_x_iterm"
 
-if isdirectory("bin")
-  let g:vroom_use_binstubs=1
-  map <leader>T :!bin/rspec . --no-color<cr>
-else
-  map <leader>T :!rspec . --no-color<cr>
-endif
+nmap <leader>t :call RunCurrentSpecFile()<cr>
+map <leader>T :call RunAllSpecs()<cr>
+nmap <space> :w<cr>:call RunNearestSpec()<cr>
+
+" if isdirectory("bin")
+"   let g:rspec_command = "!/Users/travis/.vim/bundle/vim-rspec/bin/os_x_iterm 'bin/rspec {spec}'"
+" endif
 
 " Custom leaders
 nnoremap <leader>l <c-^>
