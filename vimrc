@@ -255,4 +255,5 @@ nmap <space> :w<cr>:call RunNearestSpec()<cr>
 nnoremap <leader>l <c-^>
 map <leader>d :Dash<cr>
 map <leader>ot :sp ~/Dropbox/Documents/current-project-todos.md<CR><C-W>_
+map <leader>q :copen<cr>
 
