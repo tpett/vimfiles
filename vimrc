@@ -251,10 +251,6 @@ nmap <leader>t :call RunCurrentSpecFile()<cr>
 map <leader>T :call RunAllSpecs()<cr>
 nmap <space> :w<cr>:call RunNearestSpec()<cr>
 
-" if isdirectory("bin")
-"   let g:rspec_command = "!/Users/travis/.vim/bundle/vim-rspec/bin/os_x_iterm 'bin/rspec {spec}'"
-" endif
-
 " Custom leaders
 nnoremap <leader>l <c-^>
 map <leader>d :Dash<cr>
