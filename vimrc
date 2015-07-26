@@ -18,6 +18,7 @@ call vundle#rc()
 Bundle 'Lokaltog/powerline'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'chooh/brightscript.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'danro/rename.vim'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'elixir-lang/vim-elixir'
