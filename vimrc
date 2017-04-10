@@ -15,20 +15,24 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
-Bundle 'Lokaltog/powerline'
+Bundle 'benmills/vimux'
+Bundle 'bling/vim-airline'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'chooh/brightscript.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+" Bundle 'cohama/lexima.vim'
 Bundle 'danro/rename.vim'
 Bundle 'dermusikman/sonicpi.vim'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'ervandew/supertab'
+Bundle 'evidens/vim-twig'
 Bundle 'godlygeek/tabular'
 Bundle 'jnurmine/Zenburn'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
+Bundle 'lambdatoast/elm.vim'
 Bundle 'nono/vim-handlebars'
 Bundle 'pangloss/vim-javascript'
 Bundle 'rizzatti/dash.vim'
@@ -54,17 +58,14 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/bufexplorer.zip'
 Bundle 'vim-scripts/greplace.vim'
+Bundle 'vim-scripts/vis'
 Bundle 'xenoterracide/html.vim'
-
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 filetype plugin indent on  " setup filetype detection
 
 " Look and Feel
-
-set background=dark
-let g:zenburn_high_Contrast=1
-let g:zenburn_old_Visual = 1
+set t_Co=256
+let g:zenburn_alternate_Visual = 1
 color zenburn
 
 set relativenumber " show relative line numbers
@@ -72,6 +73,7 @@ set cursorline     " highlight current line
 set cursorcolumn   " highlight current column
 set scrolloff=3    " provide some context when editing
 set nostartofline  " don't jump to first character when paging
+set mouse=a
 
 " Remove line/column selection on inactive panes
 augroup position_selection_au
@@ -157,12 +159,6 @@ nnoremap <c-l> <c-w>l
 set splitbelow
 set splitright
 
-" disable cursor keys in normal mode
-map <Left>  :echo "no!"<cr>
-map <Right> :echo "no!"<cr>
-map <Up>    :echo "no!"<cr>
-map <Down>  :echo "no!"<cr>
-
 " remap F1 for great good
 map <F1> <Esc>
 imap <F1> <Esc>
@@ -204,8 +200,8 @@ augroup fugitive_buffer_delete_au
   au BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
-" Powerline
-let g:Powerline_symbols = 'fancy'
+" Airline
+let g:airline_powerline_fonts = 1
 
 " Bufexplorer
 let g:bufExplorerDefaultHelp=0
@@ -246,7 +242,9 @@ let NERDTreeSortOrder=['*', '\.swp$', '\.bak$', '\~$']
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
 " Testing
-let g:rspec_runner = "os_x_iterm"
+" let g:rspec_runner = "os_x_iterm"
+let g:rspec_command = 'call VimuxRunCommand("bin/rspec {spec}\n")'
+let g:VimuxUseNearest = 0
 
 nmap <leader>t :call RunCurrentSpecFile()<cr>
 map <leader>T :call RunAllSpecs()<cr>
@@ -258,3 +256,5 @@ map <leader>d :Dash<cr>
 map <leader>ot :sp ~/Dropbox/Documents/current-project-todos.md<CR><C-W>_
 map <leader>q :copen<cr>
 
+" Configure Lexima to also handle endwise rules:
+"let g:lexima_enable_endwise_rules = 1
