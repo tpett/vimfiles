@@ -1,13 +1,13 @@
 
 VIM_HOME = File.join(ENV['HOME'], ".vim")
 POWERLINE_FONTS = {
-  "https://github.com/Lokaltog/powerline-fonts/blob/master/Menlo/Menlo%20Bold%20Italic%20for%20Powerline.ttf?raw=true" =>
+  "https://github.com/abertsch/Menlo-for-Powerline/blob/master/Menlo%20Bold%20Italic%20for%20Powerline.ttf?raw=true" =>
     "Menlo Bold Italic for Powerline.ttf",
-  "https://github.com/Lokaltog/powerline-fonts/blob/master/Menlo/Menlo%20Bold%20for%20Powerline.ttf?raw=true" =>
+  "https://github.com/abertsch/Menlo-for-Powerline/blob/master/Menlo%20Bold%20for%20Powerline.ttf?raw=true" =>
     "Menlo Bold for Powerline.ttf",
-  "https://github.com/Lokaltog/powerline-fonts/blob/master/Menlo/Menlo%20Italic%20for%20Powerline.ttf?raw=true" =>
+  "https://github.com/abertsch/Menlo-for-Powerline/blob/master/Menlo%20Italic%20for%20Powerline.ttf?raw=true" =>
     "Menlo Italic for Powerline.ttf",
-  "https://github.com/Lokaltog/powerline-fonts/blob/master/Menlo/Menlo%20Regular%20for%20Powerline.ttf?raw=true" =>
+  "https://github.com/abertsch/Menlo-for-Powerline/blob/master/Menlo%20for%20Powerline.ttf?raw=true" =>
     "Menlo Regular for Powerline.ttf",
 }
 FONT_INSTALL_LOCATION = "/Library/Fonts"
