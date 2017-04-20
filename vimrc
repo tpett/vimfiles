@@ -237,6 +237,8 @@ augroup END
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>r :NERDTreeFind<CR>
 let NERDTreeSortOrder=['*', '\.swp$', '\.bak$', '\~$']
+" Close Vim if NERDTree is the last window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Use xmllint for indenting XML
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
